@@ -7,7 +7,7 @@ import Search from "../../Components/Search/Search";
 import { contactContext } from "../../store/contactContext";
 
 // import DisplayToast from "./displayToast/DisplayToast";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
 import "./home.css";
 import Button from "react-bootstrap/Button";
