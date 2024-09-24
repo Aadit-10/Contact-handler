@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+.contact-card-container {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 10px;
+  background-color: cadetblue;
+  margin-bottom: 10px;
+  margin-top: 13px;
+  color: white;
+  border-radius: 10px;
+}
+.contact-card-container .contact-card-show {
+  height: 30px;
+}
+.contact-card-container .contact-card-show-1 {
+  font-size: 20px;
+}
+.contact-card-container .contact-card-delete {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: italic;
+
+  cursor: pointer;
+  height: 33px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+.contact-card-container .contact-card-edit {
+  font-weight: 400;
+  font-style: italic;
+
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 33px;
+}
+
+.contact-card-container .contact-card-btngrp {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.contact-card-container .material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: 19px;
+}
+
+.playwrite-cu-regular {
+  font-family: "Playwrite CU", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400; /* You can change this value to any weight from 100 to 400 */
+  font-style: normal;
+}

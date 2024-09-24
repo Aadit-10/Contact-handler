@@ -1,0 +1,15 @@
+.contact-list-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 22px;
+}
+.contact-list-container .contact-list {
+  width: 475px;
+}
+
+.contact-list-container .empty-search-text {
+  display: flex;
+  justify-content: center;
+  margin: 70px 0;
+  font-size: 36px;
+}

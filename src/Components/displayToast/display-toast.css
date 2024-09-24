@@ -1,0 +1,13 @@
+.display-toast {
+  height: 49px;
+  width: 239px;
+  background-color: green;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 20px;
+  top: 45px;
+  color: white;
+}

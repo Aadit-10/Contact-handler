@@ -1,0 +1,28 @@
+{
+  "contacts": [
+    {
+      "name": "Aaddit",
+      "email": "a@a.",
+      "gender": "Male",
+      "id": "1726810399268"
+    },
+    {
+      "id": "1726811638266",
+      "name": "poko",
+      "email": "a@a.c",
+      "gender": "Male"
+    },
+    {
+      "id": "1727071288019",
+      "name": "Codelynks",
+      "email": "lunk@s.ck",
+      "gender": "Female"
+    },
+    {
+      "id": "1727071323519",
+      "name": "adaf",
+      "email": "adaf2as@s.c",
+      "gender": "Female"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+.add-contact-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.add-contact-container .add-contact {
+  display: flex;
+  width: 500px;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.add-contact-container .add-contact-input-grp {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.add-contact-container .add-contact-input {
+  border-radius: 5px;
+  height: 35px;
+  padding: 7px;
+}
+.add-contact-container .btn-input {
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.add-contact-container .btn-input:hover {
+  background-color: cadetblue; /* Change background color to blue */
+  color: white; /* Change text color to white */
+}

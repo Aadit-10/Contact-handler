@@ -1,0 +1,21 @@
+.header-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.header-container .header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+h2 {
+  font-size: 37px;
+}
+.underline {
+  width: 50%; /* Adjust the width of the line */
+  height: 2px; /* Thickness of the line */
+  background-color: grey; /* Color of the line */
+  margin: 10px auto 0; /* Adds some space above the line and centers it */
+}
