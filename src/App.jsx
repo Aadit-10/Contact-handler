@@ -44,6 +44,7 @@ function App() {
     }
     console.log("Data", data);
     setFoundContacts(data);
+
     if (data.length == 0) {
       setEmptySearchText("No Data Found");
       setShowPagination(false);
@@ -99,7 +100,6 @@ function App() {
           renderCurrentPagintionContacts,
           onChangeSearch,
           searchValue,
-          foundContacts,
           emptySearchText,
           showPagination,
         }}

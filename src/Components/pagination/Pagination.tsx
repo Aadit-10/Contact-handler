@@ -1,12 +1,21 @@
 import React, { useEffect, useState, useContext } from "react";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
-import { contactContext } from "../../store/contactContext";
 import "./pagination.css";
 
-const Pagination = () => {
-  const { currentPage, totalContacts, paginate, contactsPerPage } =
-    useContext(contactContext);
+interface PaginationProps {
+  currentPage: number;
+  totalContacts: number;
+  paginate: (status: number) => void;
+  contactsPerPage: number;
+}
+
+const Pagination: React.FC<PaginationProps> = ({
+  currentPage,
+  totalContacts,
+  paginate,
+  contactsPerPage,
+}) => {
   const totalPages = Math.ceil(totalContacts / contactsPerPage);
 
   return (

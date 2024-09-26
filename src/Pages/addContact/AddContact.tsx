@@ -5,24 +5,53 @@ import DisplayToast from "../../Components/displayToast/DisplayToast";
 import "./add-contact.css";
 import Form from "react-bootstrap/Form";
 
-const AddContact = () => {
-  const [contact, setContact] = useState({ name: "", email: "", gender: "" });
-  const [nameError, setNameError] = useState();
-  const [emailError, setEmailError] = useState("");
-  const [genderError, setGenderError] = useState("");
-  const [showToast, setShowToast] = useState(false);
+interface Contact {
+  name: string;
+  email: string;
+  gender: string;
+}
+interface ContactContextType {
+  foundContacts: Contact[];
+  setFoundContacts: React.Dispatch<React.SetStateAction<Contact[]>>;
+  deleteContact: (id: string) => Promise<void>;
+  addContactHandler: (contact: Omit<Contact, "id">) => Promise<void>;
+  getAllContacWithSearch: (searchWord?: string) => Promise<void>;
+  currentPage: number;
+  totalContacts: number;
+  paginate: (pageNumber: number) => void;
+  contactsPerPage: number;
+  renderCurrentPagintionContacts: () => Contact[];
+  onChangeSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  searchValue: string;
+  emptySearchText: string;
+  showPagination: boolean;
+}
+const AddContact: React.FC = () => {
+  const [contact, setContact] = useState<Contact>({
+    name: "",
+    email: "",
+    gender: "",
+  });
+  const [nameError, setNameError] = useState<string>("");
+  const [emailError, setEmailError] = useState<string>("");
+  const [genderError, setGenderError] = useState<string>("");
+  const [showToast, setShowToast] = useState<boolean>(false);
   // const [selectedOption, setSelectedOption] = useState();
   const navigate = useNavigate();
-  const { addContactHandler } = useContext(contactContext);
+  const context: any = useContext(contactContext);
 
-  const ContactSubmit = async (e) => {
+  const ContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    if (!context) {
+      return;
+    }
+
     e.preventDefault();
     const isEmailValid = emailValidation(contact.email);
     const isNameValid = nameValidation(contact.name);
     const isGenderValid = genderValidaton(contact.gender);
 
     if (isEmailValid && isNameValid && isGenderValid) {
-      addContactHandler(contact);
+      context.addContactHandler(contact);
       setShowToast(true);
       setContact({ name: "", email: "", gender: "" });
       await new Promise((resolve) => setTimeout(resolve, 2000));
@@ -30,7 +59,7 @@ const AddContact = () => {
     }
   };
 
-  const nameValidation = (name) => {
+  const nameValidation = (name: string) => {
     const nameRegex = /^[A-Za-z]+$/;
     // nameRegex.test(name) this returns a true value
     // if any one of the condition is true then execute statement below
@@ -42,15 +71,8 @@ const AddContact = () => {
       return true;
     }
   };
-  const setNameData = (e) => {
-    setContact((prevContact) => ({
-      ...prevContact,
-      name: e.target.value,
-    }));
-    nameValidation(e.target.value);
-  };
 
-  const emailValidation = (email) => {
+  const emailValidation = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (email === "" || !emailRegex.test(email)) {
       setEmailError("Enter a valid email address");
@@ -60,23 +82,8 @@ const AddContact = () => {
       return true;
     }
   };
-  const setEmailData = (e) => {
-    setContact((prevEmail) => ({
-      ...prevEmail,
-      email: e.target.value,
-    }));
 
-    emailValidation(e.target.value);
-  };
-  const setGenderData = (e) => {
-    setContact((prevContact) => ({
-      ...prevContact,
-      gender: e.target.value,
-    }));
-    genderValidaton(e.target.value);
-  };
-
-  const genderValidaton = (gender) => {
+  const genderValidaton = (gender: string) => {
     if (gender === "") {
       setGenderError("Enter this field");
       return false;
@@ -84,6 +91,31 @@ const AddContact = () => {
       setGenderError("");
       return true;
     }
+  };
+
+  const setNameData = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setContact((prevContact) => ({
+      ...prevContact,
+      name: e.target.value,
+    }));
+    nameValidation(e.target.value);
+  };
+
+  const setEmailData = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setContact((prevEmail) => ({
+      ...prevEmail,
+      email: e.target.value,
+    }));
+
+    emailValidation(e.target.value);
+  };
+
+  const setGenderData = (e: any) => {
+    setContact((prevContact) => ({
+      ...prevContact,
+      gender: e.target.value,
+    }));
+    genderValidaton(e.target.value);
   };
 
   return (

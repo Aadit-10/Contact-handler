@@ -6,8 +6,6 @@ import Pagination from "../../Components/pagination/Pagination";
 import Search from "../../Components/Search/Search";
 import { contactContext } from "../../store/contactContext";
 
-// import DisplayToast from "./displayToast/DisplayToast";
-// import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
 import "./home.css";
 import Button from "react-bootstrap/Button";
@@ -22,7 +20,10 @@ const Home = () => {
     searchValue,
     emptySearchText,
     showPagination,
+    currentPage,
     totalContacts,
+    paginate,
+    contactsPerPage,
   } = useContext(contactContext);
 
   return (
@@ -39,8 +40,15 @@ const Home = () => {
         <span class="material-symbols-outlined">add</span>
       </Button>
       <Search onChangeSearch={onChangeSearch} searchValue={searchValue} />
-      <ContactList emptySearchText={emptySearchText} />
-      {showPagination && totalContacts > 3 && <Pagination />}
+      <ContactList />
+      {showPagination && totalContacts > 3 && (
+        <Pagination
+          currentPage={currentPage}
+          totalContacts={totalContacts}
+          paginate={paginate}
+          contactsPerPage={contactsPerPage}
+        />
+      )}
     </div>
   );
 };
